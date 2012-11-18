@@ -9,6 +9,7 @@
 #import "ViewController.h"
 
 @interface ViewController ()
+    NSMutableArray *_passes;
 
 @end
 
