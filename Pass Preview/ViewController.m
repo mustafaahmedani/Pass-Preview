@@ -37,6 +37,11 @@
             [_passes addObject:passFile];
         }
     }
+    
+    if ([_passes count] ==1) {
+        
+        [self openPassWithName:[_passes objectAtIndex:0]];
+    }
 }
 
 #pragma mark - Table view
@@ -51,6 +56,7 @@
     return _passes.count;
 }
 
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
@@ -58,6 +64,42 @@
     NSString *object = _passes[indexPath.row];
     cell.textLabel.text = object;
     return cell;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *passName = _passes[indexPath.row];
+    [self openPassWithName: passName];
+}
+
+-(void) openPassWithName:(NSString *)name
+{
+    
+    NSString *passFile = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:name];
+    NSData *passData = [NSData dataWithContentsOfFile:passFile];
+    NSError *error = nil;
+    PKPass *newPass = [[PKPass alloc] initWithData:passData error:&error];
+    
+    if (error!=nil) {
+        [[[UIAlertView alloc] initWithTitle:@"Passes error"
+                                    message:[error
+                                             localizedDescription]
+                                   delegate:nil
+                          cancelButtonTitle:@"Ooops"
+                          otherButtonTitles: nil] show];
+        return;
+    }
+    
+    PKAddPassesViewController *addController = [[PKAddPassesViewController alloc] initWithPass:newPass];
+    addController.delegate = self;
+    [self presentViewController:addController animated:YES completion:nil];
+}
+
+#pragma mark - Pass controller delegate
+
+-(void) addPassesViewControllerDidFinish:(PKAddPassesViewController *)controller {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
