@@ -7,9 +7,11 @@
 //
 
 #import "ViewController.h"
+#import <PassKit/PassKit.h>
 
-@interface ViewController ()
-    NSMutableArray *_passes;
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, PKAddPassesViewControllerDelegate>
+
+
 
 @end
 

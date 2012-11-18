@@ -18,6 +18,8 @@
 		30358468165833DD00208F82 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30358467165833DD00208F82 /* Default-568h@2x.png */; };
 		3035846B165833DD00208F82 /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30358469165833DD00208F82 /* MainStoryboard_iPhone.storyboard */; };
 		30358471165833DD00208F82 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30358470165833DD00208F82 /* ViewController.m */; };
+		303584781658344F00208F82 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 303584771658344F00208F82 /* PassKit.framework */; };
+		3035847A1658368700208F82 /* Event.pkpass in Resources */ = {isa = PBXBuildFile; fileRef = 303584791658368700208F82 /* Event.pkpass */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		3035846A165833DD00208F82 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		3035846F165833DD00208F82 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		30358470165833DD00208F82 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		303584771658344F00208F82 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		303584791658368700208F82 /* Event.pkpass */ = {isa = PBXFileReference; lastKnownFileType = file; name = Event.pkpass; path = ../../../../../Desktop/Event.pkpass; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				303584781658344F00208F82 /* PassKit.framework in Frameworks */,
 				30358452165833DD00208F82 /* UIKit.framework in Frameworks */,
 				30358454165833DD00208F82 /* Foundation.framework in Frameworks */,
 				30358456165833DD00208F82 /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +78,7 @@
 		30358450165833DD00208F82 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				303584771658344F00208F82 /* PassKit.framework */,
 				30358451165833DD00208F82 /* UIKit.framework */,
 				30358453165833DD00208F82 /* Foundation.framework */,
 				30358455165833DD00208F82 /* CoreGraphics.framework */,
@@ -96,6 +102,7 @@
 		30358458165833DD00208F82 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				303584791658368700208F82 /* Event.pkpass */,
 				30358459165833DD00208F82 /* Pass Preview-Info.plist */,
 				3035845A165833DD00208F82 /* InfoPlist.strings */,
 				3035845D165833DD00208F82 /* main.m */,
@@ -163,6 +170,7 @@
 				30358466165833DD00208F82 /* Default@2x.png in Resources */,
 				30358468165833DD00208F82 /* Default-568h@2x.png in Resources */,
 				3035846B165833DD00208F82 /* MainStoryboard_iPhone.storyboard in Resources */,
+				3035847A1658368700208F82 /* Event.pkpass in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +274,7 @@
 				GCC_PREFIX_HEADER = "Pass Preview/Pass Preview-Prefix.pch";
 				INFOPLIST_FILE = "Pass Preview/Pass Preview-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -277,6 +286,7 @@
 				GCC_PREFIX_HEADER = "Pass Preview/Pass Preview-Prefix.pch";
 				INFOPLIST_FILE = "Pass Preview/Pass Preview-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
